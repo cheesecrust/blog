@@ -1,6 +1,7 @@
 ---
 title: Tailwind CSS를 선택한 이유
 date: 2026-02-06
+processed:
 ---
 
 스타일링 도구로 Tailwind CSS를 선택한 이유를 정리해 봅니다.

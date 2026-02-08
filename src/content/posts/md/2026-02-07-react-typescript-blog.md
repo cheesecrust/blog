@@ -1,6 +1,7 @@
 ---
 title: React와 TypeScript로 블로그 만들기
 date: 2026-02-07
+processed:
 ---
 
 React와 TypeScript를 사용하여 간단한 블로그를 만들어 보았습니다.

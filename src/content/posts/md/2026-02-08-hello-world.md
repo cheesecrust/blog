@@ -1,6 +1,7 @@
 ---
 title: 블로그를 시작하며
 date: 2026-02-08
+processed: false
 ---
 
 안녕하세요 yan 입니다.
