@@ -1,55 +1,39 @@
+import matter from 'gray-matter'
+
 export interface Post {
     id: string
     title: string
-    content: string
     date: string
+    content: string
 }
 
-export const posts: Post[] = [
-    {
-        id: '1',
-        title: '블로그를 시작하며',
-        content: `새로운 블로그를 시작합니다.
+// Import all .md files from posts folder
+const postFiles = import.meta.glob<string>('/src/content/posts/*.md', {
+    eager: true,
+    query: '?raw',
+    import: 'default',
+})
 
-이 블로그에서는 개발과 관련된 다양한 이야기를 나누려고 합니다. 프로젝트를 진행하면서 겪은 경험, 새롭게 배운 기술, 그리고 개발하면서 느낀 점들을 기록할 예정입니다.
+export function getPosts(): Post[] {
+    const posts: Post[] = []
 
-앞으로 꾸준히 글을 올릴 수 있도록 노력하겠습니다.`,
-        date: '2026-02-08',
-    },
-    {
-        id: '2',
-        title: 'React와 TypeScript로 블로그 만들기',
-        content: `React와 TypeScript를 사용하여 간단한 블로그를 만들어 보았습니다.
+    for (const [path, raw] of Object.entries(postFiles)) {
+        const { data, content } = matter(raw)
+        const filename = path.split('/').pop()?.replace('.md', '') || ''
 
-## 사용한 기술 스택
+        posts.push({
+            id: filename,
+            title: data.title || 'Untitled',
+            date: data.date || '',
+            content: content.trim(),
+        })
+    }
 
-- **React** - UI 라이브러리
-- **TypeScript** - 타입 안정성
-- **Vite** - 빌드 도구
-- **Tailwind CSS** - 스타일링
-- **React Router** - 페이지 라우팅
+    // Sort by date (newest first)
+    return posts.sort((a, b) => b.date.localeCompare(a.date))
+}
 
-## 구조
-
-페이지는 크게 두 가지로 나뉩니다. 글 목록을 보여주는 메인 페이지와 개별 글을 읽을 수 있는 상세 페이지입니다. Navbar 없이 깔끔하게 글에만 집중할 수 있도록 구성했습니다.`,
-        date: '2026-02-07',
-    },
-    {
-        id: '3',
-        title: 'Tailwind CSS를 선택한 이유',
-        content: `스타일링 도구로 Tailwind CSS를 선택한 이유를 정리해 봅니다.
-
-## 장점
-
-첫째, 클래스 이름을 고민할 필요가 없습니다. 유틸리티 클래스를 조합하면 되기 때문에 네이밍에 시간을 쓰지 않아도 됩니다.
-
-둘째, 일관된 디자인 시스템을 유지할 수 있습니다. spacing, color, typography 등이 미리 정의되어 있어서 디자인이 자연스럽게 통일됩니다.
-
-셋째, 빌드 시 사용하지 않는 스타일이 자동으로 제거됩니다. 최종 CSS 파일 크기가 매우 작아집니다.
-
-## 단점
-
-HTML이 다소 길어질 수 있고, 처음에는 클래스명을 외워야 하는 학습 비용이 있습니다. 하지만 익숙해지면 오히려 개발 속도가 빨라집니다.`,
-        date: '2026-02-06',
-    },
-]
+export function getPost(id: string): Post | null {
+    const posts = getPosts()
+    return posts.find((p) => p.id === id) ?? null
+}

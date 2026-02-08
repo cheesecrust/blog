@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { usePost } from '@/hooks/usePosts'
+import { marked } from 'marked'
 
 export default function PostPage() {
   const { id } = useParams()
@@ -25,6 +26,8 @@ export default function PostPage() {
     )
   }
 
+  const html = marked(post.content)
+
   return (
     <article>
       <Link
@@ -43,45 +46,10 @@ export default function PostPage() {
         </h1>
       </header>
 
-      <div className="prose dark:prose-invert max-w-none">
-        {post.content.split('\n').map((line, i) => {
-          if (line.startsWith('## ')) {
-            return (
-              <h2
-                key={i}
-                className="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-4"
-              >
-                {line.replace('## ', '')}
-              </h2>
-            )
-          }
-          if (line.startsWith('- ')) {
-            return (
-              <li
-                key={i}
-                className="text-gray-700 dark:text-gray-300 ml-4"
-                dangerouslySetInnerHTML={{
-                  __html: line
-                    .replace('- ', '')
-                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'),
-                }}
-              />
-            )
-          }
-          if (line.trim() === '') {
-            return <br key={i} />
-          }
-          return (
-            <p
-              key={i}
-              className="text-gray-700 dark:text-gray-300 leading-relaxed"
-              dangerouslySetInnerHTML={{
-                __html: line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'),
-              }}
-            />
-          )
-        })}
-      </div>
+      <div
+        className="prose dark:prose-invert max-w-none"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </article>
   )
 }
