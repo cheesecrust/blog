@@ -7,6 +7,10 @@ on:
     branches:
       - main
 
+# 워크플로우에 쓰기 권한 부여
+permissions:
+  contents: write
+
 jobs:
   process-posts:
     runs-on: ubuntu-latest
@@ -29,7 +33,6 @@ jobs:
           CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'src/content/posts/md/' | grep '\.md$' || echo "")
           echo "Changed files:"
           echo "$CHANGED"
-          # Save as base64 to handle special characters
           echo "files<<EOF" >> $GITHUB_OUTPUT
           echo "$CHANGED" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -41,9 +44,10 @@ jobs:
           CHANGED_FILES: ${{ steps.changed-files.outputs.files }}
         run: node scripts/process-posts.mjs
 
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git diff --quiet || (git add -A && git commit -m "🤖 AI processed blog posts")
-          git push || echo "No changes to push"
+          git add -A
+          git diff --staged --quiet || git commit -m "🤖 AI processed blog posts"
+          git push
