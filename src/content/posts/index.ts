@@ -1,10 +1,33 @@
-import matter from 'gray-matter'
-
 export interface Post {
     id: string
     title: string
     date: string
     content: string
+}
+
+// Simple frontmatter parser (browser-compatible)
+function parseFrontmatter(raw: string): { data: Record<string, string>; content: string } {
+    const lines = raw.split('\n')
+    const data: Record<string, string> = {}
+    let contentStart = 0
+
+    if (lines[0]?.trim() === '---') {
+        for (let i = 1; i < lines.length; i++) {
+            if (lines[i]?.trim() === '---') {
+                contentStart = i + 1
+                break
+            }
+            const [key, ...valueParts] = lines[i].split(':')
+            if (key) {
+                data[key.trim()] = valueParts.join(':').trim()
+            }
+        }
+    }
+
+    return {
+        data,
+        content: lines.slice(contentStart).join('\n').trim(),
+    }
 }
 
 // Import all .md files from posts folder
@@ -18,14 +41,14 @@ export function getPosts(): Post[] {
     const posts: Post[] = []
 
     for (const [path, raw] of Object.entries(postFiles)) {
-        const { data, content } = matter(raw)
+        const { data, content } = parseFrontmatter(raw)
         const filename = path.split('/').pop()?.replace('.md', '') || ''
 
         posts.push({
             id: filename,
             title: data.title || 'Untitled',
             date: data.date || '',
-            content: content.trim(),
+            content,
         })
     }
 
