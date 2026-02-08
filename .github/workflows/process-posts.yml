@@ -26,9 +26,13 @@ jobs:
       - name: Get changed files
         id: changed-files
         run: |
-          CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'src/content/posts/md/*.md' || echo "")
-          echo "files=$CHANGED" >> $GITHUB_OUTPUT
-          echo "Changed files: $CHANGED"
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- 'src/content/posts/md/' | grep '\.md$' || echo "")
+          echo "Changed files:"
+          echo "$CHANGED"
+          # Save as base64 to handle special characters
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Process posts with AI
         if: steps.changed-files.outputs.files != ''
