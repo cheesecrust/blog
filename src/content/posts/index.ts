@@ -31,7 +31,7 @@ function parseFrontmatter(raw: string): { data: Record<string, string>; content:
 }
 
 // Import all .md files from posts folder
-const postFiles = import.meta.glob<string>('/src/content/posts/*.md', {
+const postFiles = import.meta.glob<string>('/src/content/posts/md/*.md', {
     eager: true,
     query: '?raw',
     import: 'default',
