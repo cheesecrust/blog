@@ -1,29 +1,18 @@
 import { Routes, Route } from 'react-router-dom'
-import { AuthProvider } from './contexts/AuthContext'
 import Layout from './components/layout/Layout'
 import HomePage from './pages/HomePage'
-import LoginPage from './pages/LoginPage'
-import DashboardPage from './pages/DashboardPage'
-import ProtectedRoute from './components/auth/ProtectedRoute'
+import PostPage from './pages/PostPage'
+import AboutPage from './pages/AboutPage'
 
 function App() {
   return (
-    <AuthProvider>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route
-            path="dashboard"
-            element={
-              <ProtectedRoute>
-                <DashboardPage />
-              </ProtectedRoute>
-            }
-          />
-        </Route>
-      </Routes>
-    </AuthProvider>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="post/:id" element={<PostPage />} />
+        <Route path="about" element={<AboutPage />} />
+      </Route>
+    </Routes>
   )
 }
 
