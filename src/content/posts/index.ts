@@ -52,7 +52,6 @@ export function getPosts(): Post[] {
         })
     }
 
-    // Sort by date (newest first)
     return posts.sort((a, b) => b.date.localeCompare(a.date))
 }
 

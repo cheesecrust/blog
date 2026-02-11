@@ -27,30 +27,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2026-02-06-tailwind-css.md",
+                "file": "server-edu.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-02-06-tailwind-css"
-            }
-          },
-          {
-            "id": "dd3f5c441c326022",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "서버 교육.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "서버 교육"
+              "title": "server-edu"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -213,12 +199,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "dd3f5c441c326022",
+  "active": "7aed1273a2b3fb55",
   "lastOpenFiles": [
-    "2026-02-06-tailwind-css.md",
-    "서버 교육.md",
-    "2026-02-07-react-typescript-blog.md",
+    "cyber punk.md",
     "2026-02-08-hello-world.md",
-    "cyber punk.md"
+    "server-edu.md",
+    "2026-02-06-tailwind-css.md",
+    "2026-02-07-react-typescript-blog.md"
   ]
 }
