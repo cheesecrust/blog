@@ -1,21 +1,24 @@
+---
+title: TypeScript extends와 any vs unknown 완벽 정리
+date: 2026-03-03
+processed: true
+---
 
 ## extends
 
-ts의 extends는 상속이 아닌 제약조건입니다.
+ts의 `extends`는 **상속**이 아닌 **제약 조건**입니다.
 
 ```javascript
 class EventBus<T extends Record<string, unknown>>
 ```
 
-위 처럼 작성되면 위 타입은 만드시 key 를 string 으로 가지는 record 타입이어야 한다는 말입니다.
+위 처럼 작성되면 위 타입은 반드시 **key 를 string 으로 가지는 record 타입**이어야 한다는 말입니다.
 
 ## any vs unknown
 
-> 🔥 any는 타입 체크를 끄는 것
-> 🛡 unknown은 타입 안전하게 “아직 모름”을 표현하는 것
+> 🔥 **any는 타입 체크를 끄는 것**
+> 🛡 **unknown은 타입 안전하게 “아직 모름”을 표현하는 것**
 
-any는 타입 검사를 끄는 것으로 javascript 와 비슷한 동작을 하도록 합니다.
-따라서 지양하도록 합니다.
+`any`는 타입 검사를 끄는 것으로 javascript 와 비슷한 동작을 하도록 합니다. 따라서 **지양**하도록 합니다.
 
-unknown 는 아직 모를 경우에 사용하므로 타입 추론을 합니다.
-또한, unknown 은 다른 타입의 변수에 넣을 수 없습니다. <- 이게 가장 큰 차이
+`unknown` 는 아직 모를 경우에 사용하므로 **타입 추론**을 합니다. 또한, `unknown` 은 다른 타입의 변수에 넣을 수 없습니다. <- 이게 가장 큰 차이
