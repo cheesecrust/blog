@@ -51,3 +51,18 @@ ComposeContainer에서 withExposedService()를 쓰면, socat이 호스트와 컨
 현재는 postgre 만 docker 로 띄운후 해당 db 와 application 이 동작하는 형태이다.
 이때 postgre 는 docker network 안에만 있으므로 밖에서 직접 접근을 할 수 없어 socat를 활용합니다.
 
+
+
+
+문제 분해
+왜 이게 필요한가?\
+
+Testcontainers
+
+contract testing
+
+테스트 병렬화
+
+테스트 데이터
+
+ci 파이프 라인
