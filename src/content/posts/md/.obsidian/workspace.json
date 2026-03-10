@@ -74,9 +74,23 @@
               "icon": "lucide-book-up",
               "title": "릴리즈 노트 1.12.4"
             }
+          },
+          {
+            "id": "5e4347c1e0353602",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "TS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "TS"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -239,8 +253,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a98b61fcc6a0bb08",
+  "active": "5e4347c1e0353602",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
     "Domain modeling.md",
     "ai-agent engineering 4.md",
     "closer.md",
