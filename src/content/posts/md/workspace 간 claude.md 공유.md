@@ -1,14 +1,27 @@
 
 ```bash
-cat > ~/Repository/{repository_name}/.git/hooks/post-checkout << 'EOF'
+cat > ~/Repository/play-mcp-web/.git/hooks/post-checkout << 'EOF'
 #!/bin/sh
-SOURCE="/Users/{user_name}/Repository/{repository_name}/CLAUDE.md"
-TARGET="$(git rev-parse --show-toplevel)/CLAUDE.md"
+REPO_ROOT="/Users/yan.su/Repository/play-mcp-web"
+WORKTREE="$(git rev-parse --show-toplevel)"
 
-if [ "$TARGET" != "$SOURCE" ] && [ ! -f "$TARGET" ]; then
-    cp "$SOURCE" "$TARGET"
+if [ "$WORKTREE" = "$REPO_ROOT" ]; then
+    exit 0
 fi
+
+copy_if_missing() {
+    src="$REPO_ROOT/$1"
+    dst="$WORKTREE/$1"
+    if [ -f "$src" ] && [ ! -f "$dst" ]; then
+        mkdir -p "$(dirname "$dst")"
+        cp "$src" "$dst"
+    fi
+}
+
+copy_if_missing "CLAUDE.md"
+copy_if_missing "deploy/.env.local"
+copy_if_missing "config.json"
 EOF
-chmod +x ~/Repository/{repository_name}/.git/hooks/post-checkout
+chmod +x ~/Repository/play-mcp-web/.git/hooks/post-checkout
 ```
 
