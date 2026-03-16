@@ -116,9 +116,23 @@
               "icon": "lucide-file",
               "title": "github 새 브랜치 push 할때의 문제"
             }
+          },
+          {
+            "id": "01527740a2b674f1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ts - store vs state.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ts - store vs state"
+            }
           }
         ],
-        "currentTab": 7
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
@@ -281,10 +295,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "862689b4468fcc5e",
+  "active": "01527740a2b674f1",
   "lastOpenFiles": [
-    "workspace 간 claude.md 공유.md",
     "github 새 브랜치 push 할때의 문제.md",
+    "ts - store vs state.md",
+    "workspace 간 claude.md 공유.md",
     "TS.md",
     "무제",
     "conflict-files-obsidian-git.md",
