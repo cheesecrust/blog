@@ -88,9 +88,23 @@
               "icon": "lucide-file",
               "title": "TS"
             }
+          },
+          {
+            "id": "d4138fefa8a009fc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "workspace 간 claude.md 공유.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "workspace 간 claude.md 공유"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -253,14 +267,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5e4347c1e0353602",
+  "active": "d4138fefa8a009fc",
   "lastOpenFiles": [
+    "TS.md",
+    "workspace 간 claude.md 공유.md",
+    "무제",
     "conflict-files-obsidian-git.md",
     "Domain modeling.md",
     "ai-agent engineering 4.md",
     "closer.md",
     "React.md",
-    "TS.md",
     "Spring test container.md",
     "Cucumber.md",
     "인수테스트.md",
