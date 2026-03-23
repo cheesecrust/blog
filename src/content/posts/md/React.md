@@ -3,7 +3,6 @@ title: 리랜더링과 useEffect의 이해
 date: 2026-03-17
 processed: true
 ---
-
 ## 리랜더링
 
 보통의 리랜더링은 **state** 값이나 **store** 값이 변경되었을 때 일어납니다.
