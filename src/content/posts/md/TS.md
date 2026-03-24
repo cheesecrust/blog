@@ -1,10 +1,8 @@
-
 ---
 title: TypeScript extends와 any vs unknown 완벽 정리
 date: 2026-03-03
 processed: true
 ---
-
 ## extends
 
 ts의 `extends`는 **상속**이 아닌 **제약 조건**입니다.
@@ -46,3 +44,15 @@ class EventTarget {
 위의 구조를 기본적으로 가지고 있습니다.
 
 `unknown` 는 아직 모를 경우에 사용하므로 **타입 추론**을 합니다. 또한, `unknown` 은 다른 타입의 변수에 넣을 수 없습니다. <- 이게 가장 큰 차이
+
+## arrow funtion
+
+```javascript
+const foo = () => ({});
+```
+
+위 처럼 하게 된다면 arrow function 에서 바로 객체를 반환합니다. 소괄호가 없다면 body 로 인식되지만 감싸게 되면 객체를 반환합니다.
+
+## 일급 객체
+
+일급 객체란 다른 값과 동일하게 취급하는 객체를 말합니다.

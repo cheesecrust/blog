@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "requestAnimationFrame.md",
+                "file": "TS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "requestAnimationFrame"
+              "title": "TS"
             }
           }
         ],
@@ -257,32 +257,33 @@
   },
   "active": "260122c032f0f1fa",
   "lastOpenFiles": [
-    "브라우저.md",
-    "requestAnimationFrame.md",
-    "Web API.md",
-    "playwright.md",
-    "Spring test container.md",
     "React.md",
+    "Web API.md",
+    "브라우저.md",
+    "TS.md",
+    "work-log/2026-03-24.md",
+    "work-log",
+    "ts - store vs state.md",
+    "Test.md",
+    "html.md",
+    "인수테스트.md",
+    "오프라인 코드 리뷰.md",
+    "키보드 접근성.md",
+    "closer.md",
+    "github 새 브랜치 push 할때의 문제.md",
+    "playwright.md",
+    "web rendering.md",
+    "workspace 간 claude.md 공유.md",
+    "execution seq.md",
+    "requestAnimationFrame.md",
     "Domain modeling.md",
+    "Cucumber.md",
+    "Spring test container.md",
     "ai-agent engineering 1.md",
     "AI native productivity.md",
-    "web rendering.md",
-    "TS.md",
-    "html.md",
-    "오프라인 코드 리뷰.md",
-    "인수테스트.md",
-    "키보드 접근성.md",
-    "ts - store vs state.md",
-    "github 새 브랜치 push 할때의 문제.md",
-    "workspace 간 claude.md 공유.md",
     "ai-agent engineering 4.md",
-    "closer.md",
     "무제",
     "conflict-files-obsidian-git.md",
-    "Cucumber.md",
-    "ai-agent engineering 2.md",
-    "Test.md",
-    "server-edu.md",
-    "2026-02-08-hello-world.md"
+    "ai-agent engineering 2.md"
   ]
 }

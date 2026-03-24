@@ -1,4 +1,3 @@
-
 # Observer API
 
 ## MutationObserver
@@ -34,3 +33,7 @@ DOM 의 변화 시마다 trigger가 되긴 하지만, 해당 callback 함수은 
 하지만, 하나의 callstack 안에서 DOM 을 여러번 바꾼다면, 이에 따른 callback 은 한번 밖에 실행되지 않습니다.
 
 따라서 callstack 이 바뀔때 마다 쌓이거나 실행되도록 하고 싶다면, `requestAnimationFrame()`를 활용해 볼 수 있다.
+
+# document
+
+브라우저가 제공하는 전역 객체로, 어기서 호출하던 현재 페이지의 DOM 트리를 참조하도록 합니다.
